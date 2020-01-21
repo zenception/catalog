@@ -1,14 +1,13 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use Yii;
-use backend\models\Products;
-use backend\models\ProductsSearch;
+use frontend\models\Products;
+use frontend\models\ProductsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile; // for import or upload file to server
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -66,19 +65,11 @@ class ProductsController extends Controller
     public function actionCreate()
     {
         $model = new Products();
-        if ($model->load(Yii::$app->request->post())) {
-            $uploaded = UploadedFile::getInstance($model, 'image');
-            if(!empty($uploaded)) {
-                $files = time().".".$uploaded->getExtension();
-                // Yii::getAlias('@backend') หรือ Yii::$app->basePath
-                if($uploaded->saveAs(Yii::getAlias('@backend').'/web/uploads/photo/'.$files)) {
-                    $model->image = $files;
-                }
-            }
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -94,24 +85,11 @@ class ProductsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if($model->load(Yii::$app->request->post())) {
-            $uploaded = UploadedFile::getInstance($model, 'image');
-            $data = Products::findOne($id); // SELECT * FROM products WHERE id=$id
-            if(!empty($uploaded)) {
-                @unlink(Yii::$app->basePath.'/web/uploads/photo/'.$data->image); // ลบรูปเก่า
-                $files = time().".".$uploaded->getExtension(); // ตั้งชื่อไฟล์
-                // Yii::getAlias('@backend') หรือ Yii::$app->basePath
-                if($uploaded->saveAs(Yii::getAlias('@backend').'/web/uploads/photo/'.$files)) {
-                    $model->image = $files;
-                }
-            }
-            else {
-                $model->image = $data->image;
-            }
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -126,9 +104,8 @@ class ProductsController extends Controller
      */
     public function actionDelete($id)
     {
-        $data = Products::findOne($id);
-        @unlink(Yii::$app->basePath.'/web/uploads/photo/'.$data->image); // ลบรูปเก่า
         $this->findModel($id)->delete();
+
         return $this->redirect(['index']);
     }
 
@@ -144,6 +121,7 @@ class ProductsController extends Controller
         if (($model = Products::findOne($id)) !== null) {
             return $model;
         }
+
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

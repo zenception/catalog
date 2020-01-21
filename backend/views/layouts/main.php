@@ -12,7 +12,6 @@ use common\widgets\Alert;
 
 AppAsset::register($this);
 Yii::$app->name = "HUAWEI";
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

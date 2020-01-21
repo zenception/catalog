@@ -1,6 +1,20 @@
+@font-face {
+    font-family: 'promptlight';
+    src: url('../fonts/prompt-light-webfont.eot');
+    src: url('../fonts/prompt-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/prompt-light-webfont.woff2') format('woff2'),
+         url('../fonts/prompt-light-webfont.woff') format('woff'),
+         url('../fonts/prompt-light-webfont.ttf') format('truetype'),
+         url('../fonts/prompt-light-webfont.svg#promptlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body {
     height: 100%;
+    font-family:'promptlight';
+    font-size:14px;
 }
 
 .wrap {
@@ -49,11 +63,11 @@ a.asc:after, a.desc:after {
 }
 
 a.asc:after {
-    content: "\e151";
+    content: /*"\e113"*/ "\e151";
 }
 
 a.desc:after {
-    content: "\e152";
+    content: /*"\e114"*/ "\e152";
 }
 
 .sort-numerical a.asc:after {
@@ -72,7 +86,8 @@ a.desc:after {
     content: "\e156";
 }
 
-.grid-view td {
+.grid-view th,
+.grid-view td:last-child {
     white-space: nowrap;
 }
 
