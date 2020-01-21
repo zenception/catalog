@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2020 at 06:10 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Generation Time: 21 ม.ค. 2020 เมื่อ 11:35 AM
+-- เวอร์ชันของเซิร์ฟเวอร์: 10.4.10-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration`
+-- โครงสร้างตาราง `migration`
 --
 
 CREATE TABLE `migration` (
@@ -34,7 +34,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migration`
+-- dump ตาราง `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -46,32 +46,29 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- โครงสร้างตาราง `products`
 --
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
-  `detail` text,
+  `detail` text DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `products`
+-- dump ตาราง `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `color`, `detail`, `image`) VALUES
-(1, 'เทสๆ', 'ขาว', 'รายๆ ละๆ เอียดๆ', ''),
-(2, 'Test', 'ดำ', 'dfdfdfd', 'เปรียบเทียบราคา CITY.PNG'),
-(3, 'fgfgf', 'fdfd', 'fdfdfd', 'เปรียบเทียบราคา CITY.PNG'),
-(4, 'ssss', 'dsds', 'ddsds', 'เปรียบเทียบราคา CITY.PNG'),
-(6, 'dfdfd', 'fdfd', 'fdfd', '1579536685.png');
+(11, 'P30 PRO', 'ดำ', '-', '1579602001.png'),
+(12, 'MATE 20X', 'ฟ้า', '-', '1579602038.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- โครงสร้างตาราง `user`
 --
 
 CREATE TABLE `user` (
@@ -81,7 +78,7 @@ CREATE TABLE `user` (
   `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` smallint(6) NOT NULL DEFAULT '10',
+  `status` smallint(6) NOT NULL DEFAULT 10,
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   `verification_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
@@ -120,7 +117,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
