@@ -1,6 +1,20 @@
+@font-face {
+    font-family: 'promptlight';
+    src: url('../fonts/prompt-light-webfont.eot');
+    src: url('../fonts/prompt-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/prompt-light-webfont.woff2') format('woff2'),
+         url('../fonts/prompt-light-webfont.woff') format('woff'),
+         url('../fonts/prompt-light-webfont.ttf') format('truetype'),
+         url('../fonts/prompt-light-webfont.svg#promptlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body {
     height: 100%;
+    font-family:'promptlight';
+    font-size:14px;
 }
 
 .wrap {

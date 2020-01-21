@@ -29,8 +29,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'image') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton('ค้นหา', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('ล้างค่า', ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

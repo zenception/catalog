@@ -29,12 +29,8 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['detail'], 'string'],
+            [['detail', 'image'], 'string'],
             [['name', 'color'], 'string', 'max' => 255],
-            [['image'], 'file',
-                'skipOnEmpty' => true,
-                'extensions' => 'png,jpg'
-            ]
         ];
     }
 
