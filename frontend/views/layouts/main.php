@@ -39,12 +39,12 @@ Yii::$app->name = "HUAWEI"
         ]);
         $menuItems = [
             ['label' => 'หน้าหลัก', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'แคตตาล็อก', 'url' => ['/products/index']],
+            ['label' => 'ติดต่อเรา', 'url' => ['/site/contact']],
         ];
         if (Yii::$app->user->isGuest) {
-            $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-            $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+            $menuItems[] = ['label' => 'สมัครสมาชิก', 'url' => ['/site/signup']];
+            $menuItems[] = ['label' => 'เข้าสู่ระบบ', 'url' => ['/site/login']];
         } else {
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

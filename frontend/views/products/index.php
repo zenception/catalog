@@ -24,8 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-sm-6 col-md-3">
 
                 <div class="thumbnail">
-                    <center><b><?= $row["name"]; ?></b></center>
-                    <img src="../../backend/web/uploads/photo/<?= $row['image']; ?>" alt="..." style="width:100%; height:250px;" />
+                    <a href="?r=products/view&id=13">
+                        <center><b><?= $row["name"]; ?></b></center>
+                        <img src="../../backend/web/uploads/photo/<?= $row['image']; ?>" alt="..." style="width:100%;" />
+                    </a>
                     <div class="caption">
                         <p><?= $row["detail"]; ?></p>
                     </div>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 ม.ค. 2020 เมื่อ 11:35 AM
--- เวอร์ชันของเซิร์ฟเวอร์: 10.4.10-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Jan 21, 2020 at 04:18 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `migration`
+-- Table structure for table `migration`
 --
 
 CREATE TABLE `migration` (
@@ -34,7 +34,7 @@ CREATE TABLE `migration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- dump ตาราง `migration`
+-- Dumping data for table `migration`
 --
 
 INSERT INTO `migration` (`version`, `apply_time`) VALUES
@@ -46,29 +46,33 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `color` varchar(255) DEFAULT NULL,
-  `detail` text DEFAULT NULL,
+  `detail` text,
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- dump ตาราง `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `color`, `detail`, `image`) VALUES
-(11, 'P30 PRO', 'ดำ', '-', '1579602001.png'),
-(12, 'MATE 20X', 'ฟ้า', '-', '1579602038.jpg');
+(13, 'Huawei P30 Pro', 'BlackAmber, SunriseBreathing, CrystalPearl, WhiteAurora', '', '1579619189.jpg'),
+(14, 'Huawei nova 6 SE', 'Black, Bluelight, Emerald, Green', '', '1579619346.jpg'),
+(15, 'Huawei P40 Pro', 'Blue', '', '1579619396.jpg'),
+(16, 'Huawei MatePad Pro', 'White, Green, Gray, Orange', '', '1579619735.jpg'),
+(17, 'Huawei Mate 30 RS Porsche Design', 'Black, Red', '', '1579619777.jpg'),
+(18, 'Huawei MediaPad M6 Turbo 8.4', 'Red, Blue', '', '1579619793.jpg');
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -78,7 +82,7 @@ CREATE TABLE `user` (
   `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` smallint(6) NOT NULL DEFAULT 10,
+  `status` smallint(6) NOT NULL DEFAULT '10',
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   `verification_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
@@ -117,7 +121,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
